@@ -1,13 +1,19 @@
 import React from "react";
 
-function Pizza() {
+function Pizza({pizza, setPizzaToEdit}) {
+  const {topping, size, vegetarian} = pizza;
+
+  function handleSetPizzaToEdit(event){
+    setPizzaToEdit(pizza)    
+  }
+
   return (
     <tr>
-      <td>{"Replace Me With Pizza Topping"}</td>
-      <td>{"Replace Me With Pizza Size"}</td>
-      <td>{"Replace Me With Vegatarian"}</td>
+      <td>{topping}</td>
+      <td>{size}</td>
+      <td>{vegetarian ? "True" : "False"}</td>
       <td>
-        <button type="button" className="btn btn-primary">
+        <button onClick={handleSetPizzaToEdit} type="button" className="btn btn-primary">
           Edit Pizza
         </button>
       </td>
